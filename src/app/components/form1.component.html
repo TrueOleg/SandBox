@@ -1,0 +1,42 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="text-center">
+	<h1>
+		Form - {{form.selected}}
+	</h1>
+  <h3>Personal Data</h3>
+</div>
+
+<div class="container">
+
+  <form [formGroup]="dataForm" class="row justify-content-center">
+  <mat-form-field appearance="outline">
+                    <mat-label>Name</mat-label>
+                    <input matInput formControlName="name" />
+                    
+                    <mat-error
+                        *ngIf="dataForm.get('name').hasError('required')"
+                    >
+                        Name is required
+                    </mat-error>
+                </mat-form-field>
+    <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="email" />
+                    
+                    <mat-error
+                        *ngIf="dataForm.get('email').hasError('required')"
+                    >
+                        Email is required
+                    </mat-error>
+                    <mat-error
+                        *ngIf="
+                            !dataForm.get('email').hasError('required') &&
+                            dataForm.get('email').hasError('email')
+                        "
+                    >
+                        Please enter a valid email address
+                    </mat-error>
+                </mat-form-field>
+
+  </form>
+</div>

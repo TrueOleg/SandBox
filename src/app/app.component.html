@@ -1,0 +1,16 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div *ngIf="form.selected==0" class="jumbotron text-center">
+	<h1>
+		Angular Forms Sample
+	</h1>
+	<span>
+		This is a simple Angular application, with 3 input forms.
+	</span>	
+	<div class="my-2"><button class="btn btn-primary" (click)="form.selected=1">Form 1</button></div>
+	<div class="my-2"><button class="btn btn-primary" (click)="form.selected=2">Form 2</button></div>
+	<div class="my-2"><button class="btn btn-primary" (click)="form.selected=3">Form 3</button></div>
+</div>
+
+<form1 *ngIf="form.selected==1" [form]=form></form1>
+<form2 *ngIf="form.selected==2" [form]=form></form2>
+<form3 *ngIf="form.selected==3" [form]=form></form3>
